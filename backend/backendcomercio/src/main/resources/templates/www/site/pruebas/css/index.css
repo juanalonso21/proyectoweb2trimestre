@@ -4,7 +4,7 @@ body {
 }
 
 .carousel-item img {
-    height: 500px;
+    height: 500px !important;
     object-fit: cover;
 }
 
@@ -22,6 +22,10 @@ body {
 .card img {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    border-radius: 8px;
+    max-height: 150px;
+    width: 100%;
+    object-fit: cover;
 }
 
 h2 {
@@ -36,10 +40,6 @@ h2 {
     padding-bottom: 40px;
 }
 
-.carousel-item img {
-    height: 500px;
-    object-fit: cover;
-}
 
 .recuadro{
     background-color: aqua !important;
