@@ -1,6 +1,11 @@
+:root{
+    --bg-color-primario:#e6f0f5;
+    --bg-color-secundario:#039ee3;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #586e84;
+    background-color: var(--bg-color-primario);
 }
 
 .carousel-item img {
