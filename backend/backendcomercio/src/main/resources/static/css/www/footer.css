@@ -1,0 +1,109 @@
+:root {
+    --bg-color-primario: #e6f0f5;
+    --bg-color-secundario: #039ee3;
+    --bg-color-footer: #111;
+    --text-color-footer: #ffffff;
+}
+
+footer {
+    background-color: var(--bg-color-footer) !important;
+    color: var(--text-color-footer);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.footer-column {
+    flex: 1;
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* Estilo para el logo del footer */
+.footer-logo {
+    height: 50px; /* Tamaño mediano para el logo */
+    width: auto; /* Mantiene la proporción del logo */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.footer-logo:hover {
+    opacity: 0.8; /* Efecto hover para el logo */
+}
+
+/* Estilo para los iconos de redes sociales */
+.list-inline-item {
+    font-size: 20px;
+    margin: 0 10px; /* Espaciado entre iconos */
+}
+
+.social-icon {
+    color: var(--text-color-footer);
+    transition: color 0.3s ease-in-out;
+}
+
+.social-icon:hover {
+    color: var(--bg-color-secundario); /* Cambia de color al hacer hover */
+}
+
+/* Estilo para la lista de políticas de privacidad */
+.privacy-links {
+    list-style: none; /* Quita los puntos de la lista */
+    padding: 0;
+}
+
+.privacy-links li {
+    margin: 10px 0; /* Espaciado entre elementos de la lista */
+}
+
+.privacy-links a {
+    color: var(--text-color-footer);
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    transition: color 0.3s ease-in-out;
+}
+
+.privacy-links a:hover {
+    color: var(--bg-color-secundario); /* Cambia de color al hacer hover */
+}
+
+/* Estilos responsivos para móviles */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Apila las columnas verticalmente */
+        text-align: center;
+    }
+
+    .footer-column {
+        flex: none; /* Elimina el flex para que no ocupe espacio innecesario */
+        width: 100%; /* Ocupa el ancho completo */
+        margin: 15px 0; /* Espaciado entre columnas */
+    }
+
+    .footer-logo {
+        height: 40px; /* Tamaño un poco más pequeño para móviles */
+    }
+
+    .list-inline {
+        display: flex;
+        justify-content: center; /* Centra los iconos horizontalmente */
+        flex-wrap: wrap; /* Permite que los iconos se envuelvan si no caben */
+    }
+
+    .list-inline-item {
+        margin: 5px 10px; /* Espaciado entre iconos en móviles */
+    }
+
+    .privacy-links {
+        display: flex;
+        flex-direction: column; /* Apila los enlaces verticalmente */
+        align-items: center; /* Centra los enlaces horizontalmente */
+    }
+
+    .privacy-links li {
+        margin: 5px 0; /* Espaciado entre enlaces en móviles */
+    }
+}
