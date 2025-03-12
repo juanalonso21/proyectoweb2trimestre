@@ -1,0 +1,61 @@
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{/admin/layout/Main}">
+<div layout:fragment="mainBase">
+    <!-- Contenido principal -->
+    <div class="container">
+        <h4>Administración de Categorias</h4>
+        
+        <!-- Botón Nuevo -->
+        <a href="/admin/gamas/new" class="btn waves-effect waves-light green">
+            <i class="material-icons left">add</i>Nuevo
+        </a>
+        <!-- Tabla -->
+        <table class="striped responsive-table">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>username</th>
+                    <th>email</th>
+                    <th>password</th>
+                    <th>nombre</th>
+                    <th>rol</th>
+                    <th>estado</th>
+                    <th>fechaCreacion</th>
+                    <th>ultimoLogin</th>
+                    <th>token</th>
+                    <th>intentosLogin</th>
+                    <th>avatarUrl</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Ejemplo de registros -->
+                <tr th:each="gama : ${Lgamas}">
+                    <td>
+                        <a th:href="@{/gamas/{id}(id=${usuario.id})}">
+                            <span th:text="${usuario.id}"></span>
+                        </a>
+                    </td>
+                    <td th:text="${gama.username}"></td>
+                    <td>
+                        <img height="50px" th:src="${gama.imagen}" th:alt="${gama.imagen}">
+                    </td>
+                    <td>
+                        <a class="btn-floating blue waves-effect waves-light"><i class="material-icons">edit</i></a>
+                        <a class="btn-floating red waves-effect waves-light"><i class="material-icons">delete</i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Paginador -->
+        <ul class="pagination center paginador">
+            <li class="disabled"><a href="#"><i class="material-icons">chevron_left</i></a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li class="waves-effect"><a href="#">2</a></li>
+            <li class="waves-effect"><a href="#">3</a></li>
+            <li class="waves-effect"><a href="#">4</a></li>
+            <li class="waves-effect"><a href="#">5</a></li>
+            <li class="waves-effect"><a href="#"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+    </div>
+</div>
+</html>
