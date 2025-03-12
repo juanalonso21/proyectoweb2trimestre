@@ -10,28 +10,13 @@ public class SiteController {
     public String home(){
         return "/www/site/index";
     }
-    @GetMapping("/")
+    @GetMapping("/montaje")
     public String montaje(){
         return "/www/site/montaje";
     }
-    @GetMapping("/")
+    @GetMapping("/manteniminento")
     public String mantenimiento(){
         return "/www/site/mantenimiento";
     }
-    @GetMapping("/")
-    public String personalizados(){
-        return "/www/site/personalizados";
-    }
-    @GetMapping("/")
-    public String tienda(){
-        return "/www/site/tienda";
-    }
-    @GetMapping("/")
-    public String carrito(){
-        return "/www/site/carrito";
-    }
-    @GetMapping("/")
-    public String contacto(){
-        return "/www/site/cpntacto";
-    }
+
 }
