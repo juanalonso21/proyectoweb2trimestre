@@ -142,3 +142,66 @@ a {
 .nav_link.hide-text .nav_icon {
     margin: 0 auto;
 }
+
+.sidebar {
+  height: 100vh;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #343a40;
+  overflow-x: hidden;
+  transition: 0.3s;
+}
+
+.sidebar.collapsed {
+  width: 75px;
+}
+
+.sidebar .sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  color: white;
+}
+
+.sidebar .nav-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.sidebar .nav-item:hover {
+  background-color: #495057;
+}
+
+.sidebar .nav-item .icon {
+  font-size: 1.5rem;
+}
+
+.sidebar .nav-item .text {
+  margin-left: 1rem;
+  display: inline;
+}
+
+.sidebar.collapsed .nav-item .text {
+  display: none;
+}
+
+.main-content {
+  margin-left: 250px;
+  padding: 1rem;
+  transition: 0.3s;
+}
+
+.main-content.collapsed {
+  margin-left: 75px;
+}
+
+.sidebar.collapsed #icono {
+  display: none;
+}

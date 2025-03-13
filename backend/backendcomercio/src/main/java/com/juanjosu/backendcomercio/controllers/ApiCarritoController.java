@@ -9,7 +9,7 @@ import com.juanjosu.backendcomercio.model.Entities.Carrito;
 
 @RestController
 @RequestMapping("/api/carrito")
-@CrossOrigin(origins = "http://localhost:5173") // Permitir tu frontend
+@CrossOrigin(origins = "http://localhost:5176") // Permitir tu frontend
 public class ApiCarritoController {
 
     @Autowired

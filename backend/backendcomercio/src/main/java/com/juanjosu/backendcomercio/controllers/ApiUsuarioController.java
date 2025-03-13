@@ -5,8 +5,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,7 +19,7 @@ import com.juanjosu.backendcomercio.model.Entities.Usuario;
 
 @RestController
 @RequestMapping("/api/usuario")
-@CrossOrigin(origins = "http://localhost:5173") // Permitir tu frontend
+@CrossOrigin(origins = "http://localhost:5177") // Permitir tu frontend
 public class ApiUsuarioController {
 
     private static final String UPLOAD_DIR = "assets/img/";
@@ -67,4 +70,17 @@ public class ApiUsuarioController {
     public void deleteUsuario(@PathVariable Integer id) {
         usuarioService.delete(id);
     }
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody Map<String, String> credentials) {
+        String username = credentials.get("username");
+        String password = credentials.get("password");
+        Usuario usuario = usuarioService.findByUsernameAndPassword(username, password);
+        if (usuario != null) {
+            return ResponseEntity.ok(Map.of("success", true, "user", usuario));
+        } else {
+            return ResponseEntity.ok(Map.of("success", false));
+        }
+    }
+
+
 }
