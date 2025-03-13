@@ -29,6 +29,9 @@ public class UsuarioService {
     public Usuario getId(Integer id){
         return this.usuarioRep.findById(id).orElse(null);
     }
+    public Usuario findByUsernameAndPassword(String username, String password){
+        return this.usuarioRep.findByUsernameAndPassword(username, password);
+    }
 
     public void update(Integer id, Usuario usuario) {
         Optional<Usuario> existingUsuario = usuarioRep.findById(id);
