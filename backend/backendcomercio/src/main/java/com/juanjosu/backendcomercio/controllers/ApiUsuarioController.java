@@ -2,6 +2,7 @@ package com.juanjosu.backendcomercio.controllers;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,6 +10,7 @@ import com.juanjosu.backendcomercio.model.Services.UsuarioService;
 import com.juanjosu.backendcomercio.model.Entities.Usuario;
 @RestController
 @RequestMapping("/api/usuario")
+@CrossOrigin(origins = "http://localhost:5173")
 public class ApiUsuarioController {
     @Autowired
     private UsuarioService usuarioService;

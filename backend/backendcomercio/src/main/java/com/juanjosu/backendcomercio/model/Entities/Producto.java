@@ -1,4 +1,5 @@
 package com.juanjosu.backendcomercio.model.Entities;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -34,12 +35,8 @@ public class Producto {
     @Column(name = "fecha_creacion", updatable = false)
     private LocalDateTime fechaCreacion = LocalDateTime.now();
 
-    @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "ENUM('activo', 'inactivo') DEFAULT 'activo'")
-    private EstadoProducto estado = EstadoProducto.ACTIVO;
+    @Column(nullable = false, length = 20)
+    private String estado = "ACTIVO";
 }
 
-enum EstadoProducto {
-    ACTIVO, INACTIVO
-}
 

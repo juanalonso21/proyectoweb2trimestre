@@ -1,4 +1,5 @@
 package com.juanjosu.backendcomercio.model.Entities;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,13 +25,11 @@ public class Usuario {
 
     private String nombre;
 
-    @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "ENUM('admin', 'editor', 'usuario') DEFAULT 'usuario'")
-    private Rol rol = Rol.USUARIO;
+    @Column(nullable = false, length = 20)
+    private String estado = "ACTIVO";
 
-    @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "ENUM('activo', 'suspendido', 'eliminado') DEFAULT 'activo'")
-    private Estado estado = Estado.ACTIVO;
+    @Column(nullable = false, length = 20)
+    private String rol = "USUARIO";
 
     @Column(name = "fecha_creacion", updatable = false)
     private LocalDateTime fechaCreacion = LocalDateTime.now();
@@ -45,12 +44,3 @@ public class Usuario {
     @Column(name = "avatar_url", columnDefinition = "VARCHAR(255) DEFAULT 'default.png'")
     private String avatarUrl = "default.png";
 }
-
-enum Rol {
-    ADMIN, EDITOR, USUARIO
-}
-
-enum Estado {
-    ACTIVO, SUSPENDIDO, ELIMINADO
-}
-
