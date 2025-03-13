@@ -1,14 +1,13 @@
 import React from "react";
-import UsersPage from "./views/UsersPage";
+import { BrowserRouter as Router } from "react-router-dom";
+import Sidebar from "./components/sidebaradmin";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <UsersPage />
-    </div>
+    <Router>
+      <Sidebar />
+    </Router>
   );
-}
+};
 
-
-
-export default App
+export default App;

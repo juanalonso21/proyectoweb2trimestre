@@ -24,8 +24,9 @@ public class Producto {
     @Column(nullable = false)
     private BigDecimal precio;
 
-    @Column(columnDefinition = "INT DEFAULT 0")
-    private int stock = 0;
+    @ManyToOne
+    @JoinColumn(name = "carrito_id")
+    private Carrito carrito;
 
     private String categoria;
 
