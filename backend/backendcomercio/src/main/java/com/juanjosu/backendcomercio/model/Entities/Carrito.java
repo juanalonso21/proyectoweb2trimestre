@@ -1,7 +1,10 @@
 package com.juanjosu.backendcomercio.model.Entities;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Table(name = "carrito")
@@ -16,18 +19,18 @@ public class Carrito {
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 
-    @ManyToOne
-    @JoinColumn(name = "producto_id", nullable = false)
-    private Producto producto;
+    @OneToMany(mappedBy = "carrito", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Producto> productos;
 
     @Column(nullable = false)
     private int cantidad;
+
     @Override
     public String toString() {
         return "Carrito{" +
                 "id=" + id +
                 ", usuario=" + usuario +
-                ", producto=" + producto +
+                ", productos=" + productos +
                 ", cantidad=" + cantidad +
                 '}';
     }

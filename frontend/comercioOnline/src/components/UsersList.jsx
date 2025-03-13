@@ -1,6 +1,6 @@
 import React from "react";
 
-const UsersList = ({ users }) => {
+const UsersList = ({ users, onEdit, onDelete }) => {
   return (
     <div className="container">
       {users.length === 0 ? (
@@ -21,6 +21,7 @@ const UsersList = ({ users }) => {
               <th>Token</th>
               <th>Intentos Login</th>
               <th>Avatar URL</th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -38,6 +39,10 @@ const UsersList = ({ users }) => {
                 <td>{user.token ? user.token : "N/A"}</td>
                 <td>{user.intentosLogin}</td>
                 <td>{user.avatarUrl}</td>
+                <td>
+                  <button className="btn btn-primary" onClick={() => onEdit(user)}>Editar</button>
+                  <button className="btn btn-danger" onClick={() => onDelete(user.id)}>Eliminar</button>
+                </td>
               </tr>
             ))}
           </tbody>

@@ -1,10 +1,14 @@
 package com.juanjosu.backendcomercio.model.Services;
+
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.juanjosu.backendcomercio.model.Entities.Carrito;
 import com.juanjosu.backendcomercio.model.Repositories.CarritoRepository;
+
 @Service
 public class CarritoService {
     @Autowired
@@ -18,14 +22,23 @@ public class CarritoService {
         this.carritoRep.save(carrito);
     }
 
-
     public void delete (Integer id){
         this.carritoRep.deleteById(id);
     }
 
     public Carrito getId(Integer id){
-        return this.carritoRep.findById(id).get();
+        return this.carritoRep.findById(id).orElse(null);
     }
 
-    
+    public void update(Integer id, Carrito carrito) {
+        Optional<Carrito> existingCarrito = carritoRep.findById(id);
+        if (existingCarrito.isPresent()) {
+            Carrito updatedCarrito = existingCarrito.get();
+            updatedCarrito.setUsuario(carrito.getUsuario());
+            updatedCarrito.setProductos(carrito.getProductos());
+            updatedCarrito.setCantidad(carrito.getCantidad());
+            // Actualiza otros campos según sea necesario
+            carritoRep.save(updatedCarrito);
+        }
+    }
 }

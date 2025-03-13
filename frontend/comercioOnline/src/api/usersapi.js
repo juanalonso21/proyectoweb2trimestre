@@ -1,9 +1,9 @@
-import axios from "axios";
+import apiClient from "./apiclient";
 
 // Obtener todos los usuarios
 export const getUsers = async () => {
   try {
-    const response = await axios.get("http://localhost:8090/api/usuario/");
+    const response = await apiClient.get("/usuario/");
     return response.data;
   } catch (error) {
     console.error("Error al obtener los usuarios:", error);
@@ -14,7 +14,7 @@ export const getUsers = async () => {
 // Obtener un usuario por ID
 export const getUserById = async (id) => {
   try {
-    const response = await axios.get(`/api/usuario/${id}`);
+    const response = await apiClient.get(`/usuario/${id}`);
     return response.data;
   } catch (error) {
     console.error(`Error al obtener el usuario con ID ${id}:`, error);
@@ -25,7 +25,7 @@ export const getUserById = async (id) => {
 // Crear un nuevo usuario
 export const createUser = async (userData) => {
   try {
-    const response = await axios.post("/api/usuario", userData);
+    const response = await apiClient.post("/usuario/create", userData);
     return response.data;
   } catch (error) {
     console.error("Error al crear el usuario:", error);
@@ -36,7 +36,7 @@ export const createUser = async (userData) => {
 // Actualizar un usuario
 export const updateUser = async (id, userData) => {
   try {
-    const response = await axios.put(`/api/usuario/${id}`, userData);
+    const response = await apiClient.put(`/usuario/update/${id}`, userData);
     return response.data;
   } catch (error) {
     console.error(`Error al actualizar el usuario con ID ${id}:`, error);
@@ -47,7 +47,7 @@ export const updateUser = async (id, userData) => {
 // Eliminar un usuario
 export const deleteUser = async (id) => {
   try {
-    await axios.delete(`/api/usuario/${id}`);
+    await apiClient.delete(`/usuario/delete/${id}`);
   } catch (error) {
     console.error(`Error al eliminar el usuario con ID ${id}:`, error);
     throw error;
