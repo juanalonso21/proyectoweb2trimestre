@@ -19,7 +19,7 @@ import com.juanjosu.backendcomercio.model.Entities.Usuario;
 
 @RestController
 @RequestMapping("/api/usuario")
-@CrossOrigin(origins = "http://localhost:5177") // Permitir tu frontend
+@CrossOrigin(origins = "http://localhost:5173") // Permitir tu frontend
 public class ApiUsuarioController {
 
     private static final String UPLOAD_DIR = "assets/img/";
