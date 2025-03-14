@@ -1,51 +1,31 @@
 import { useEffect, useState } from "react";
+import SideBar from "../components/sidebaradmin";
 
 function Admin() {
-  const [productos, setProductos] = useState([]);
-  const [nombre, setNombre] = useState("");
-  const [precio, setPrecio] = useState("");
-
-  // Cargar productos desde el backend
-  useEffect(() => {
-    fetch("http://localhost:8090/api/productos")
-      .then(res => res.json())
-      .then(data => setProductos(data));
-  }, []);
-
-  // Agregar un nuevo producto
-  const agregarProducto = () => {
-    fetch("http://localhost:8090/api/productos", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nombre, precio }),
-    })
-      .then(res => res.json())
-      .then(data => setProductos([...productos, data])); // Actualizar lista
-  };
-
-  // Eliminar un producto
-  const eliminarProducto = (id) => {
-    fetch(`http://localhost:8090/api/productos/${id}`, { method: "DELETE" })
-      .then(() => setProductos(productos.filter(p => p._id !== id))); // Actualizar lista
-  };
-
-  return (
-    <div>
-      <h2>Panel de Administración</h2>
-      <input placeholder="Nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} />
-      <input placeholder="Precio" type="number" value={precio} onChange={(e) => setPrecio(e.target.value)} />
-      <button onClick={agregarProducto}>Agregar Producto</button>
-
-      <ul>
-        {productos.map((p) => (
-          <li key={p._id}>
-            {p.nombre} - ${p.precio}
-            <button onClick={() => eliminarProducto(p._id)}>Eliminar</button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+    const [user, setUser] = useState(null);
+  
+    useEffect(() => {
+      const storedUser = localStorage.getItem("user");
+      if (storedUser) {
+        setUser(JSON.parse(storedUser));
+      }
+    }, []);
+  
+    return (
+      <div className="flex">
+        <SideBar />
+        <div className="flex-1 p-4">
+          {user ? (
+            <div>
+              <h2 className="text-2xl font-bold mb-4">Bienvenido, {user.username}!</h2>
+              <p className="text-lg">Estas logueado en el panel de admin</p>
+            </div>
+          ) : (
+            <p className="text-lg">Por favor inicia sesion para continuar</p>
+          )}
+        </div>
+      </div>
+    );
+  }
 
 export default Admin;
