@@ -1,0 +1,40 @@
+{
+  "pageTitle": "E-commerce - Inicio",
+  "carousel": [
+    {
+      "image": "/public/img/macaco-1.jpg",
+      "title": "Ordenadores",
+      "description": "Aprovecha nuestras ofertas de temporada con descuentos de hasta el 50%."
+    },
+    {
+      "image": "/public/img/macaco-2.jpg",
+      "title": "Electrodomesticos",
+      "description": "Compra hoy y recibe tu pedido sin costos de envío."
+    },
+    {
+      "image": "/public/img/macaco-3.jpg",
+      "title": "Espadas de hierro",
+      "description": "Descubre nuestra última colección de productos innovadores."
+    }
+  ],
+  "featuredProducts": [
+    {
+      "id": 1,
+      "name": "Electrodomesticos",
+      "description": "Descripción breve del producto 1.",
+      "image": "/public/img/macaco-1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Espadas de hierro",
+      "description": "Descripción breve del producto 2.",
+      "image": "/public/img/macaco-2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Electrodomesticos",
+      "description": "Descripción breve del producto 3.",
+      "image": "/public/img/macaco-3.jpg"
+    }
+  ]
+}

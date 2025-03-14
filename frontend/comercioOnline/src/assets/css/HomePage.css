@@ -1,0 +1,20 @@
+/* Estilos para la página de inicio */
+.carousel-item img {
+    border-radius: 8px;
+  }
+  
+  .product-list .card {
+    transition: transform 0.2s;
+  }
+  
+  .product-list .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .product-list .card-img-top {
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .product-list .card-body {
+    text-align: center;
+  }

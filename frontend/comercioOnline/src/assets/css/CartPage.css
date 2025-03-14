@@ -1,0 +1,24 @@
+/* Estilos para la página del carrito */
+.cart-item img {
+    border-radius: 8px;
+  }
+  
+  .cart-item .form-control {
+    width: 80px;
+  }
+  
+  .cart-item .btn-danger {
+    width: 100%;
+  }
+  
+  .alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+  }
+  
+  .alert-info {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+  }

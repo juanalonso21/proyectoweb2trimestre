@@ -1,0 +1,38 @@
+/* Estilos para el header */
+.custom-header {
+    background-color: #343a40; /* Color de fondo del header */
+    padding: 10px 0; /* Relleno vertical */
+  }
+  
+  /* Estilos para el buscador */
+  .custom-search {
+    width: 300px; /* Ancho reducido del buscador */
+    margin-left: 20px; /* Margen a la izquierda */
+  }
+  
+  /* Estilos para los íconos de usuario y carrito */
+  .custom-icons {
+    display: flex;
+    flex-direction: column; /* Coloca los íconos en columna */
+    align-items: flex-end; /* Alinea los íconos a la derecha */
+    margin-right: 20px; /* Margen a la derecha */
+  }
+  
+  .custom-icons a {
+    margin-bottom: 10px; /* Espacio entre los íconos */
+  }
+  
+  /* Estilos para la barra de enlaces */
+  .custom-links {
+    background-color: #f8f9fa; /* Color de fondo de la barra de enlaces */
+    padding: 10px 0; /* Relleno vertical */
+  }
+  
+  .custom-links .nav-link {
+    color: #343a40; /* Color del texto de los enlaces */
+    margin: 0 15px; /* Espacio horizontal entre enlaces */
+  }
+  
+  .custom-links .nav-link:hover {
+    color: #007bff; /* Color del texto al pasar el mouse */
+  }
