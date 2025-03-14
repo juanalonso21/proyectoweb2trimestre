@@ -2,12 +2,12 @@
   "pageTitle": "E-commerce - Inicio",
   "carousel": [
     {
-      "image": "/public/img/macaco-1.jpg",
+      "image": "/public/img/producto02.jpg",
       "title": "Ordenadores",
       "description": "Aprovecha nuestras ofertas de temporada con descuentos de hasta el 50%."
     },
     {
-      "image": "/public/img/macaco-2.jpg",
+      "image": "/public/img/producto01.jpg",
       "title": "Electrodomesticos",
       "description": "Compra hoy y recibe tu pedido sin costos de envío."
     },

@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Nav, Container, Form, FormControl, Button } from "react-bootstrap";
 import { FaShoppingCart, FaRegUserCircle } from "react-icons/fa"; // Importa íconos de react-icons
-import "../css/Header.css"; // Importa el CSS personalizado
+import "../assets/css/Header.css"; // Importa el CSS personalizado
 
 
 const Header = () => {

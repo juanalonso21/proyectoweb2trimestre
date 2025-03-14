@@ -3,7 +3,7 @@ import { Container, Row, Col, Button, Alert } from "react-bootstrap";
 import CartItem from "../components/CartItem";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import "../css/CartPage.css"; // Ruta corregida
+import "../assets/css/CartPage.css"; // Ruta corregida
 
 const CartPage = () => {
   // Estado inicial del carrito (puedes cargarlo desde un contexto o API)

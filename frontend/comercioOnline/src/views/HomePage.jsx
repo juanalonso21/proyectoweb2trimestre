@@ -4,9 +4,9 @@ import CarouselComponent from "../components/CarouselComponent";
 import ProductList from "../components/ProductList";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import "../css/HomePage.css"; // Ruta corregida
-import pageData from "../data/PageData.json"; // Importa el JSON
-
+import "../assets/css/HomePage.css"; // Ruta corregida
+import pageData from "../data/pageData.json"; // Importa el JSON
+import "../assets/css/styles.css"; // Importa el CSS personalizado
 const HomePage = () => {
   return (
     <>

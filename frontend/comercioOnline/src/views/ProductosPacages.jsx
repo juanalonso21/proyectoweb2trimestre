@@ -3,7 +3,7 @@ import { Container, Row } from "react-bootstrap";
 import ProductCard from "../components/ProductCard"; // Reutilizamos el componente de tarjeta
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import "../css/ProductosPage.css";
+import "../assets/css/ProductosPage.css";
 
 const ProductosPage = () => {
   // Datos de ejemplo para los productos

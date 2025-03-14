@@ -1,18 +1,21 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Asegúrate de importar Routes y Route
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"; // Asegúrate de importar Navigate
 import Sidebar from "./components/sidebaradmin";
 import Login from "./views/login";
 import SignIn from "./views/SingIn";
+import HomePage from "./views/HomePage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ProductsPage from "./views/ProductsPage";
 const App = () => {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
         {/* Agrega más rutas según sea necesario */}
-        <Route path="/signin" component={SignIn} />
-        
-      <Redirect from="*" to="/" />
+        <Route path="/productos" element={<ProductsPage />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="*" element={<Navigate to="/" />} /> {/* Redirige todas las rutas no definidas a HomePage */}
       </Routes>
     </Router>
   );

@@ -9,7 +9,7 @@ import com.juanjosu.backendcomercio.model.Entities.Categoria;
 
 @RestController
 @RequestMapping("/api/categoria")
-@CrossOrigin(origins = "http://localhost:5173") // Permitir tu frontend
+@CrossOrigin(origins = "http://localhost:5174") // Permitir tu frontend
 public class ApiCategoriaController {
 
     @Autowired
