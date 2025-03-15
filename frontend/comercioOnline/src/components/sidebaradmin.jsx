@@ -23,8 +23,8 @@ const Sidebar = () => {
 
         <nav className="mt-4">
           <NavItem icon="bx-grid-alt" text="Dashboard" isOpen={isOpen} to="/" />
-          <NavItem icon="bx-user" text="Users" isOpen={isOpen} to="/usuarios" />
-          <NavItem icon="bx-message-square-detail" text="Messages" isOpen={isOpen} to="/messages" />
+          <NavItem icon="bx-user" text="Users" isOpen={isOpen} to="/admin/usuarios" />
+          <NavItem icon="bx-message-square-detail" text="Categorias" isOpen={isOpen} to="/admin/categorias" />
           <NavItem icon="bx-bookmark" text="Bookmark" isOpen={isOpen} to="/bookmark" />
           <NavItem icon="bx-folder" text="Files" isOpen={isOpen} to="/files" />
           <NavItem icon="bx-bar-chart-alt-2" text="Stats" isOpen={isOpen} to="/stats" />

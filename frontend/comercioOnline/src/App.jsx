@@ -6,6 +6,8 @@ import SignIn from "./views/SingIn";
 import HomePage from "./views/HomePage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ProductsPage from "./views/ProductsPage";
+import Admin from "./admin/Admin";
+import UsersPage from "./views/UsersPage";
 const App = () => {
   return (
     <Router>
@@ -15,6 +17,8 @@ const App = () => {
         {/* Agrega más rutas según sea necesario */}
         <Route path="/productos" element={<ProductsPage />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/usuarios" element={<UsersPage />} />
         <Route path="*" element={<Navigate to="/" />} /> {/* Redirige todas las rutas no definidas a HomePage */}
       </Routes>
     </Router>

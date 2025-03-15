@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getUsers, createUser, updateUser, deleteUser } from "../api/usersapi";
 import UsersList from "../components/UsersList";
 import UserForm from "../components/UserForm";
-
+import Sidebar from "../components/sidebaradmin";
 const UsersPage = () => {
   const [users, setUsers] = useState([]);
   const [editingUser, setEditingUser] = useState(null);
