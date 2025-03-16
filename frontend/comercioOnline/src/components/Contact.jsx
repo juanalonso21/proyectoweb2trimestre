@@ -14,7 +14,7 @@ const Contact = () => {
     const send = () => {
         if (description && asunto && name) {
             const contenido = {
-                "content": "Me interesa:",
+                "content": "Mensaje:",
                 "embeds": [
                     {
                         "title": asunto,
@@ -48,7 +48,7 @@ const Contact = () => {
     };
 
     return (
-        <div className="container bg-primary text-white p-5 rounded">
+        <div className="container bg-primary text-white p-5 rounded pb-30">
             <div className="text-center mb-4">
                 <h2>CONTACTA CON NOSOTROS</h2>
             </div>

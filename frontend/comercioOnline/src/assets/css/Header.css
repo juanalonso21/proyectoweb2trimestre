@@ -2,8 +2,13 @@
 .custom-header {
     background-color: #343a40; /* Color de fondo del header */
     padding: 10px 0; /* Relleno vertical */
+    width: 100vw; /* Ancho total de la ventana */
   }
   
+  .navbar{
+    display: flex;
+    justify-content: space-between;
+  }
   /* Estilos para el buscador */
   .custom-search {
     width: 300px; /* Ancho reducido del buscador */
@@ -35,4 +40,11 @@
   
   .custom-links .nav-link:hover {
     color: #007bff; /* Color del texto al pasar el mouse */
+  }
+
+  .navbar-brand img{
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 50%;
   }
