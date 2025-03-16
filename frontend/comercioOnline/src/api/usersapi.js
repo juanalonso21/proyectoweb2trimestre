@@ -23,13 +23,8 @@ export const getUserById = async (id) => {
 };
 
 // Crear un nuevo usuario
-export const createUser = async (userData) => {
+export const createUser = async (formData) => {
   try {
-    const formData = new FormData();
-    formData.append("usuario", JSON.stringify(userData));
-    if (userData.avatarFile) {
-      formData.append("file", userData.avatarFile);
-    }
     const response = await apiClient.post("/usuario/create", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
@@ -43,13 +38,8 @@ export const createUser = async (userData) => {
 };
 
 // Actualizar un usuario
-export const updateUser = async (id, userData) => {
+export const updateUser = async (id, formData) => {
   try {
-    const formData = new FormData();
-    formData.append("usuario", JSON.stringify(userData));
-    if (userData.avatarFile) {
-      formData.append("file", userData.avatarFile);
-    }
     const response = await apiClient.put(`/usuario/update/${id}`, formData, {
       headers: {
         "Content-Type": "multipart/form-data",

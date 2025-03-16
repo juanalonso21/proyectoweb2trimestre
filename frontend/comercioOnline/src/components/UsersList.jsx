@@ -38,7 +38,15 @@ const UsersList = ({ users, onEdit, onDelete }) => {
                 <td>{user.ultimoLogin ? user.ultimoLogin : "N/A"}</td>
                 <td>{user.token ? user.token : "N/A"}</td>
                 <td>{user.intentosLogin}</td>
-                <td>{user.avatarUrl}</td>
+                <td>
+                  {user.avatarUrl && (
+                    <img
+                      src={`http://localhost:8090/img/${user.avatarUrl}`}
+                      alt={user.username}
+                      style={{ width: "50px", height: "50px" }}
+                    />
+                  )}
+                </td>
                 <td>
                   <button className="btn btn-primary" onClick={() => onEdit(user)}>Editar</button>
                   <button className="btn btn-danger" onClick={() => onDelete(user.id)}>Eliminar</button>
