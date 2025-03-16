@@ -82,6 +82,9 @@ const ProductsPageAdmin = () => {
   return (
     <div className="container">
       <h2>Productos</h2>
+      <button className="btn btn-success mb-3" onClick={handleAddProduct}>
+        Añadir Producto
+      </button>
       {showForm && (
         <div className="mb-4">
           <ProductForm
@@ -92,7 +95,7 @@ const ProductsPageAdmin = () => {
           />
         </div>
       )}
-      <ProductsList products={products} onEdit={handleEditProduct} onDelete={handleDeleteProduct} onAddProduct={handleAddProduct} />
+      <ProductsList products={products} onEdit={handleEditProduct} onDelete={handleDeleteProduct} />
     </div>
   );
 };

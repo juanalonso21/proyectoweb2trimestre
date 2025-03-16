@@ -37,6 +37,7 @@ public class ProductoService {
             updatedProducto.setNombre(producto.getNombre());
             updatedProducto.setDescripcion(producto.getDescripcion());
             updatedProducto.setPrecio(producto.getPrecio());
+            updatedProducto.setImagenUrl(producto.getImagenUrl());
             // Actualiza otros campos según sea necesario
             productoRep.save(updatedProducto);
         }

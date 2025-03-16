@@ -58,21 +58,36 @@ public class ApiProductoController {
 
         if (file != null && !file.isEmpty()) {
             String fileName = file.getOriginalFilename();
+            System.out.println("Nombre del archivo: " + fileName); // Log para verificar el nombre del archivo
             Path filePath = Paths.get(UPLOAD_DIR, fileName);
             Files.createDirectories(filePath.getParent());
             Files.write(filePath, file.getBytes());
             producto.setImagenUrl(fileName);
+            System.out.println(producto.getImagenUrl() + producto.getId()); // Log para verificar el nombre de la imagen
             System.out.println("Imagen guardada en: " + filePath.toAbsolutePath().toString()); // Log para verificar la ruta
         } else {
             // Si no se proporciona un nuevo archivo, mantener el nombre de la imagen existente
             producto.setImagenUrl(existingProducto.getImagenUrl());
         }
 
+        // Asegúrate de que el ID del producto se mantenga igual
+        producto.setId(id);
+
         productoService.update(id, producto);
     }
 
     @DeleteMapping("/delete/{id}")
     public void deleteProducto(@PathVariable Integer id) {
+        Producto producto = productoService.getId(id);
+        if (producto != null && producto.getImagenUrl() != null) {
+            Path filePath = Paths.get(UPLOAD_DIR, producto.getImagenUrl());
+            try {
+                Files.deleteIfExists(filePath);
+                System.out.println("Imagen eliminada: " + filePath.toAbsolutePath().toString()); // Log para verificar la eliminación
+            } catch (IOException e) {
+                System.err.println("Error al eliminar la imagen: " + e.getMessage());
+            }
+        }
         productoService.delete(id);
     }
 }
