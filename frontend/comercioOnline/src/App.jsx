@@ -7,6 +7,7 @@ import HomePage from "./views/HomePage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ProductsPage from "./views/ProductsPage";
 import Admin from "./admin/Admin";
+import "./assets/css/styles.css";
 import UsersPageAdmin from "./views/UsersPageAdmin";
 import CategoriasPageAdmin from "./views/CategoriasPageAdmin";
 

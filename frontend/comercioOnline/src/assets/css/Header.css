@@ -4,7 +4,7 @@
     padding: 10px 0; /* Relleno vertical */
     width: 100vw; /* Ancho total de la ventana */
   }
-  
+
   .navbar{
     display: flex;
     justify-content: space-between;
@@ -48,3 +48,21 @@
     background-color: white;
     border-radius: 50%;
   }
+
+  /* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .custom-search {
+    width: 100%; /* Ancho completo en pantallas pequeñas */
+    margin: 10px 0; /* Margen superior e inferior */
+  }
+
+  .custom-icons {
+    flex-direction: row; /* Mantén los íconos en fila en pantallas pequeñas */
+    justify-content: center; /* Centra los íconos */
+    margin: 10px 0; /* Margen superior e inferior */
+  }
+
+  .custom-links .nav-link {
+    margin: 0 10px; /* Reduce el espacio entre enlaces en pantallas pequeñas */
+  }
+}
