@@ -14,7 +14,7 @@ const Sidebar = () => {
         <div className="sidebar-header">
           <span className="fs-5 d-flex align-items-center gap-2">
             <i className="bx bx-layer fs-3" id="icono"></i>
-            {isOpen && <span>BBBootstrap</span>}
+            {isOpen && <span>Admin </span>}
           </span>
           <button className="btn btn-dark" onClick={() => setIsOpen(!isOpen)}>
             <i className="bx bx-menu fs-3"></i>

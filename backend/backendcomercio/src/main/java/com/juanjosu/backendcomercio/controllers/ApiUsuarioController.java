@@ -55,13 +55,22 @@ public class ApiUsuarioController {
     @PutMapping("/update/{id}")
     public void updateUsuario(@PathVariable Integer id, @RequestParam("usuario") String usuarioJson, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
         Usuario usuario = objectMapper.readValue(usuarioJson, Usuario.class);
+        Usuario existingUsuario = usuarioService.getId(id);
+
         if (file != null && !file.isEmpty()) {
             String fileName = file.getOriginalFilename();
             Path filePath = Paths.get(UPLOAD_DIR, fileName);
             Files.createDirectories(filePath.getParent());
             Files.write(filePath, file.getBytes());
             usuario.setAvatarUrl(fileName);
+        } else {
+            // Si no se proporciona un nuevo archivo, mantener el nombre de la imagen existente
+            usuario.setAvatarUrl(existingUsuario.getAvatarUrl());
         }
+
+        // Asegúrate de que el ID del usuario se mantenga igual
+        usuario.setId(id);
+
         usuarioService.update(id, usuario);
     }
 

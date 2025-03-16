@@ -35,8 +35,14 @@ const UsersPageAdmin = () => {
     }
   };
 
-  const handleCreateOrUpdateUser = async (formData) => {
+  const handleCreateOrUpdateUser = async () => {
     try {
+      const formData = new FormData();
+      formData.append("usuario", JSON.stringify(newUser));
+      if (newUser.avatarFile) {
+        formData.append("file", newUser.avatarFile);
+      }
+
       if (editingUser) {
         await updateUser(editingUser.id, formData);
       } else {
@@ -102,25 +108,23 @@ const UsersPageAdmin = () => {
   };
 
   return (
-    <div className="d-flex">
+    <div className="container">
       <Sidebar />
-      <div className="container">
-        <h2>Usuarios</h2>
-        <button className="btn btn-success mb-3" onClick={handleAddUser}>
-          Añadir Usuario
-        </button>
-        {showForm && (
-          <div className="mb-4">
-            <UserForm
-              user={newUser}
-              onChange={handleInputChange}
-              onSubmit={handleCreateOrUpdateUser}
-              editingUser={editingUser}
-            />
-          </div>
-        )}
-        <UsersList users={users} onEdit={handleEditUser} onDelete={handleDeleteUser} />
-      </div>
+      <h2>Usuarios</h2>
+      <button className="btn btn-success mb-3" onClick={handleAddUser}>
+        Añadir Usuario
+      </button>
+      {showForm && (
+        <div className="mb-4">
+          <UserForm
+            user={newUser}
+            onChange={handleInputChange}
+            onSubmit={handleCreateOrUpdateUser}
+            editingUser={editingUser}
+          />
+        </div>
+      )}
+      <UsersList users={users} onEdit={handleEditUser} onDelete={handleDeleteUser} />
     </div>
   );
 };
