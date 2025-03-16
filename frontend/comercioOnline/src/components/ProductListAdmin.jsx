@@ -13,6 +13,7 @@ const ProductListAdmin = ({ products, onEdit, onDelete }) => {
               <th>Nombre</th>
               <th>Descripción</th>
               <th>Precio</th>
+              <th>Categoría</th>
               <th>Imagen</th>
               <th>Acciones</th>
             </tr>
@@ -24,6 +25,7 @@ const ProductListAdmin = ({ products, onEdit, onDelete }) => {
                 <td>{product.nombre}</td>
                 <td>{product.descripcion}</td>
                 <td>{product.precio}</td>
+                <td>{product.categoria ? product.categoria.nombre : "Sin categoría"}</td>
                 <td>
                   {product.imagenUrl && (
                     <img

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getProducts, createProduct, updateProduct, deleteProduct } from "../api/productsapi";
 import ProductsList from "../components/ProductListAdmin";
 import ProductForm from "../components/ProductForm";
-
+import Sidebar from "../components/sidebaradmin";
 const ProductsPageAdmin = () => {
   const [products, setProducts] = useState([]);
   const [editingProduct, setEditingProduct] = useState(null);
@@ -84,6 +84,7 @@ const ProductsPageAdmin = () => {
 
   return (
     <div className="container">
+        <Sidebar />
       <h2>Productos</h2>
       <button className="btn btn-success mb-3" onClick={handleAddProduct}>
         Añadir Producto

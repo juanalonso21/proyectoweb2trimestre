@@ -67,6 +67,16 @@ public class ApiUsuarioController {
 
     @DeleteMapping("/delete/{id}")
     public void deleteUsuario(@PathVariable Integer id) {
+        Usuario usuario = usuarioService.getId(id);
+        if (usuario != null && usuario.getAvatarUrl() != null) {
+            Path filePath = Paths.get(UPLOAD_DIR, usuario.getAvatarUrl());
+            try {
+                Files.deleteIfExists(filePath);
+                System.out.println("Imagen eliminada: " + filePath.toAbsolutePath().toString()); // Log para verificar la eliminación
+            } catch (IOException e) {
+                System.err.println("Error al eliminar la imagen: " + e.getMessage());
+            }
+        }
         usuarioService.delete(id);
     }
 
