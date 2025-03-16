@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -68,8 +67,19 @@ public class ApiUsuarioController {
 
     @DeleteMapping("/delete/{id}")
     public void deleteUsuario(@PathVariable Integer id) {
+        Usuario usuario = usuarioService.getId(id);
+        if (usuario != null && usuario.getAvatarUrl() != null) {
+            Path filePath = Paths.get(UPLOAD_DIR, usuario.getAvatarUrl());
+            try {
+                Files.deleteIfExists(filePath);
+                System.out.println("Imagen eliminada: " + filePath.toAbsolutePath().toString()); // Log para verificar la eliminación
+            } catch (IOException e) {
+                System.err.println("Error al eliminar la imagen: " + e.getMessage());
+            }
+        }
         usuarioService.delete(id);
     }
+
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map<String, String> credentials) {
         String username = credentials.get("username");
@@ -81,6 +91,4 @@ public class ApiUsuarioController {
             return ResponseEntity.ok(Map.of("success", false));
         }
     }
-
-
 }

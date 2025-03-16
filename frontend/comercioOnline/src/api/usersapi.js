@@ -25,7 +25,16 @@ export const getUserById = async (id) => {
 // Crear un nuevo usuario
 export const createUser = async (userData) => {
   try {
-    const response = await apiClient.post("/usuario/create", userData);
+    const formData = new FormData();
+    formData.append("usuario", JSON.stringify(userData));
+    if (userData.avatarFile) {
+      formData.append("file", userData.avatarFile);
+    }
+    const response = await apiClient.post("/usuario/create", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
     return response.data;
   } catch (error) {
     console.error("Error al crear el usuario:", error);
@@ -36,7 +45,16 @@ export const createUser = async (userData) => {
 // Actualizar un usuario
 export const updateUser = async (id, userData) => {
   try {
-    const response = await apiClient.put(`/usuario/update/${id}`, userData);
+    const formData = new FormData();
+    formData.append("usuario", JSON.stringify(userData));
+    if (userData.avatarFile) {
+      formData.append("file", userData.avatarFile);
+    }
+    const response = await apiClient.put(`/usuario/update/${id}`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
     return response.data;
   } catch (error) {
     console.error(`Error al actualizar el usuario con ID ${id}:`, error);

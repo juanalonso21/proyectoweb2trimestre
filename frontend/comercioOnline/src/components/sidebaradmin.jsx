@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, Routes, Route } from "react-router-dom";
-import UsersPage from "../views/UsersPage";
+import UsersPage from "../views/UsersPageAdmin";
 import "../assets/css/sidebar.css";
 import "boxicons/css/boxicons.min.css";
 
@@ -22,16 +22,14 @@ const Sidebar = () => {
         </div>
 
         <nav className="mt-4">
-          <NavItem icon="bx-grid-alt" text="Dashboard" isOpen={isOpen} to="/" />
+          
           <NavItem icon="bx-user" text="Users" isOpen={isOpen} to="/admin/usuarios" />
           <NavItem icon="bx-message-square-detail" text="Categorias" isOpen={isOpen} to="/admin/categorias" />
-          <NavItem icon="bx-bookmark" text="Bookmark" isOpen={isOpen} to="/bookmark" />
-          <NavItem icon="bx-folder" text="Files" isOpen={isOpen} to="/files" />
-          <NavItem icon="bx-bar-chart-alt-2" text="Stats" isOpen={isOpen} to="/stats" />
+          <NavItem icon="bx-bookmark" text="Productos" isOpen={isOpen} to="/admin/productos" />
         </nav>
 
         <div className="mt-auto">
-          <NavItem icon="bx-log-out" text="Sign Out" isOpen={isOpen} to="/logout" />
+          <NavItem icon="bx-log-out" text="Sign Out" isOpen={isOpen} to="/" />
         </div>
       </div>
 

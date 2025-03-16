@@ -1,9 +1,9 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-  baseURL: "http://localhost:8090/api", // Base de la API
+  baseURL: "http://localhost:8090/api",
   headers: {
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
   },
 });
 
