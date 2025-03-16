@@ -10,10 +10,14 @@ const SignIn = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
+  const baseURL = window.location.hostname === 'localhost' 
+    ? "http://localhost:8090/api" 
+    : "http://your-ip-address:8090/api";
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8090/api/usuario/create", {
+      const response = await axios.post(`${baseURL}/usuario/create`, {
         username,
         email,
         password,
@@ -39,7 +43,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div className="d-flex justify-content-center align-items-center rounded bg-light">
       <div className="card p-4 shadow-lg">
         <h2 className="text-center mb-4">Registro</h2>
         <form onSubmit={handleSubmit}>
@@ -96,7 +100,7 @@ const SignIn = () => {
           <button type="submit" className="btn btn-primary w-100">Registrarse</button>
         </form>
         <div className="text-center mt-3">
-          <a href="/login" className="text-decoration-none">¿Ya tienes una cuenta? Inicia sesión</a>
+          <a href="/login" className="text-decoration-none">Inicia sesión</a>
         </div>
       </div>
     </div>

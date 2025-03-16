@@ -1,6 +1,10 @@
 import React from "react";
 
 const ProductListAdmin = ({ products, onEdit, onDelete }) => {
+  const baseURL = window.location.hostname === 'localhost' 
+    ? "http://localhost:8090/img/" 
+    : "http://192.168.0.23:8090/img/";
+
   return (
     <div className="container">
       {products.length === 0 ? (
@@ -29,7 +33,7 @@ const ProductListAdmin = ({ products, onEdit, onDelete }) => {
                 <td>
                   {product.imagenUrl && (
                     <img
-                      src={`http://localhost:8090/img/${product.imagenUrl}`}
+                      src={`${baseURL}${product.imagenUrl}`}
                       alt={product.nombre}
                       style={{ width: "50px", height: "50px" }}
                     />
