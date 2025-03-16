@@ -7,10 +7,14 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  const baseURL = window.location.hostname === 'localhost' 
+    ? "http://localhost:8090/api" 
+    : "http://192.168.0.23:8090/api";
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8090/api/usuario/login", { username, password });
+      const response = await axios.post(`${baseURL}/usuario/login`, { username, password });
       const { data } = response;
       if (data.success) {
         // Guardar la información del usuario en localStorage

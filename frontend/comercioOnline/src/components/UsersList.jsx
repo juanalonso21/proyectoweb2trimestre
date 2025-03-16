@@ -1,6 +1,10 @@
 import React from "react";
 
 const UsersList = ({ users, onEdit, onDelete }) => {
+  const baseURL = window.location.hostname === 'localhost' 
+    ? "http://localhost:8090/img/" 
+    : "http://192.168.0.23:8090/img/";
+
   return (
     <div className="container">
       {users.length === 0 ? (
@@ -41,7 +45,7 @@ const UsersList = ({ users, onEdit, onDelete }) => {
                 <td>
                   {user.avatarUrl && (
                     <img
-                      src={`http://localhost:8090/img/${user.avatarUrl}`}
+                      src={`${baseURL}${user.avatarUrl}`}
                       alt={user.username}
                       style={{ width: "50px", height: "50px" }}
                     />
