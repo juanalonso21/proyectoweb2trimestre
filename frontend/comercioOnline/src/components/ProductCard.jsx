@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
+import "../assets/css/ProductCard.css"; // Asegúrate de que la ruta sea correcta
 
 const ProductCard = ({ product }) => {
   const imageUrl = `/public/img/${product.imagenUrl}`; // Ruta de la imagen
@@ -18,4 +19,5 @@ const ProductCard = ({ product }) => {
     </Card>
   );
 };
+
 export default ProductCard;

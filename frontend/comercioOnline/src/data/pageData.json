@@ -20,21 +20,21 @@
   "featuredProducts": [
     {
       "id": 1,
-      "name": "Electrodomesticos",
+      "name": "Sobre mesa",
       "description": "Descripción breve del producto 1.",
-      "image": "/public/img/macaco-1.jpg"
+      "image": "/public/img/producto09.jpg"
     },
     {
       "id": 2,
-      "name": "Espadas de hierro",
+      "name": "Portátiles",
       "description": "Descripción breve del producto 2.",
-      "image": "/public/img/macaco-2.jpg"
+      "image": "/public/img/producto10.jpg"
     },
     {
       "id": 3,
-      "name": "Electrodomesticos",
+      "name": "Componentes",
       "description": "Descripción breve del producto 3.",
-      "image": "/public/img/macaco-3.jpg"
+      "image": "/public/img/producto11.jpg"
     }
   ]
 }

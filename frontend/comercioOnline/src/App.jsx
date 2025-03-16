@@ -8,6 +8,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import ProductsPage from "./views/ProductsPage";
 import Admin from "./admin/Admin";
 import UsersPage from "./views/UsersPage";
+import "./assets/css/styles.css";
 const App = () => {
   return (
     <Router>

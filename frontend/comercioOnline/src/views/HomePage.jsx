@@ -5,11 +5,9 @@ import ProductList from "../components/ProductList";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Contact from "../components/Contact";
-import "../css/HomePage.css"; // Ruta corregida
 import pageData from "../data/PageData.json"; // Importa el JSON
-
-import "../assets/css/HomePage.css"; // Ruta corregida
 import "../assets/css/styles.css"; // Importa el CSS personalizado
+import "../assets/css/HomePage.css"; // Ruta corregida
 const HomePage = () => {
   return (
     <>
@@ -18,10 +16,12 @@ const HomePage = () => {
 
       {/* Contenido principal */}
       <Container className="mt-5">
-        <h1 className="text-center mb-4">{pageData.pageTitle}</h1>
+        <h1 className="text-center mb-4 txt-color">{pageData.pageTitle}</h1>
 
         {/* Carrusel */}
         <CarouselComponent carouselItems={pageData.carousel} />
+
+        <p className="text-center mb-4">{pageData.page}</p>
 
         {/* Productos destacados */}
         <h2 className="text-center mb-4">Principales categorías</h2>
