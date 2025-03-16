@@ -3,6 +3,7 @@ import { Container, Row, Col, Form } from "react-bootstrap";
 import ProductCard from "../components/ProductCard";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import "../assets/css/ProductosPage.css"; // Importa el CSS
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
@@ -50,7 +51,7 @@ const ProductsPage = () => {
   return (
     <>
       <Header />
-      <Container className="mt-5">
+      <Container className="products-page">
         <h1 className="text-center mb-4">Productos</h1>
         <Row className="mb-4">
           <Col md={4}>

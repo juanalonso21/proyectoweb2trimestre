@@ -4,12 +4,8 @@ import CarouselComponent from "../components/CarouselComponent";
 import ProductList from "../components/ProductList";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-<<<<<<< HEAD
 import Contact from "../components/Contact";
 import pageData from "../data/PageData.json"; // Importa el JSON
-=======
-import "../assets/css/HomePage.css"; // Ruta corregida
->>>>>>> 5690f236fd94db8a1914a3181ff13e136601948d
 import "../assets/css/styles.css"; // Importa el CSS personalizado
 import "../assets/css/HomePage.css"; // Ruta corregida
 const HomePage = () => {

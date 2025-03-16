@@ -1,11 +1,7 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
-<<<<<<< HEAD
 import "../assets/css/ProductCard.css"; // Asegúrate de que la ruta sea correcta
 
-=======
-import "../assets/css/ProductCard.css"; 
->>>>>>> 5690f236fd94db8a1914a3181ff13e136601948d
 const ProductCard = ({ product }) => {
   const imageUrl = `/public/img/${product.imagenUrl}`; // Ruta de la imagen
 
