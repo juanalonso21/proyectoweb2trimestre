@@ -16,7 +16,7 @@ import com.juanjosu.backendcomercio.model.Entities.Producto;
 
 @RestController
 @RequestMapping("/api/producto")
-@CrossOrigin(origins = "http://localhost:5173") // Permitir tu frontend
+@CrossOrigin(origins = "*") // Permitir todos los orígenes
 public class ApiProductoController {
 
     private static final String UPLOAD_DIR = "assets/img/";
