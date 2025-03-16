@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
-
+import "../assets/css/ProductCard.css"; 
 const ProductCard = ({ product }) => {
   const imageUrl = `/public/img/${product.imagenUrl}`; // Ruta de la imagen
 
@@ -11,7 +11,7 @@ const ProductCard = ({ product }) => {
       </div>
       <Card.Body>
         <Card.Title>{product.nombre}</Card.Title>
-        <Card.Text>{product.descripcion}</Card.Text>
+        <Card.Text className="product-description">{product.descripcion}</Card.Text>
         <Card.Text>${product.precio.toFixed(2)}</Card.Text>
         <Button variant="primary">Añadir al Carrito</Button>
       </Card.Body>

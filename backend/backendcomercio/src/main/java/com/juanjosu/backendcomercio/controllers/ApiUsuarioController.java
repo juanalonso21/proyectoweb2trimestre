@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -70,6 +69,7 @@ public class ApiUsuarioController {
     public void deleteUsuario(@PathVariable Integer id) {
         usuarioService.delete(id);
     }
+
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map<String, String> credentials) {
         String username = credentials.get("username");
@@ -81,6 +81,4 @@ public class ApiUsuarioController {
             return ResponseEntity.ok(Map.of("success", false));
         }
     }
-
-
 }

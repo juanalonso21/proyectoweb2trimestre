@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"; // Asegúrate de importar Navigate
-import Sidebar from "./components/sidebaradmin";
+import ProductsPageAdmin from "./views/ProductsPageAdmin";
 import Login from "./views/login";
 import SignIn from "./views/SingIn";
 import HomePage from "./views/HomePage";
@@ -19,6 +19,7 @@ const App = () => {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/usuarios" element={<UsersPage />} />
+        <Route path="/admin/productos" element={<ProductsPageAdmin />} />
         <Route path="*" element={<Navigate to="/" />} /> {/* Redirige todas las rutas no definidas a HomePage */}
       </Routes>
     </Router>
