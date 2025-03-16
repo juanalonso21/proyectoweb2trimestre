@@ -10,7 +10,8 @@ const ProductsPageAdmin = () => {
     nombre: "",
     descripcion: "",
     precio: 0,
-    imagenUrl: ""
+    imagenUrl: "",
+    categoria: null,
   });
   const [showForm, setShowForm] = useState(false);
 
@@ -38,7 +39,8 @@ const ProductsPageAdmin = () => {
         nombre: "",
         descripcion: "",
         precio: 0,
-        imagenUrl: ""
+        imagenUrl: "",
+        categoria: null,
       });
       setEditingProduct(null);
       setShowForm(false);
@@ -74,7 +76,8 @@ const ProductsPageAdmin = () => {
       nombre: "",
       descripcion: "",
       precio: 0,
-      imagenUrl: ""
+      imagenUrl: "",
+      categoria: null,
     });
     setShowForm(true);
   };

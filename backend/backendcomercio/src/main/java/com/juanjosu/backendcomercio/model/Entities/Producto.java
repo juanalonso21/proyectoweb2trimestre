@@ -28,7 +28,9 @@ public class Producto {
     @JoinColumn(name = "carrito_id")
     private Carrito carrito;
 
-    private String categoria;
+    @ManyToOne
+    @JoinColumn(name = "categoria_id", nullable = false)
+    private Categoria categoria;
 
     @Column(name = "imagen_url", columnDefinition = "VARCHAR(255) DEFAULT 'default.png'")
     private String imagenUrl = "default.png";
