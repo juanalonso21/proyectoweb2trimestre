@@ -6,7 +6,7 @@ const UsersList = ({ users, onEdit, onDelete }) => {
     : "http://192.168.0.23:8090/img/";
 
   return (
-    <div className="container">
+    <div className="table-container">
       {users.length === 0 ? (
         <p>No hay usuarios disponibles</p>
       ) : (

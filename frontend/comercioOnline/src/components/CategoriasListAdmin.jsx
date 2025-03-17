@@ -4,7 +4,7 @@ const CategoriasListAdmin = ({ categorias, onEdit, onDelete }) => {
   const baseURL =
     window.location.hostname === "localhost"
       ? "http://localhost:8090/img/"
-      : "http://192.168.0.23:8090/img/";
+      : "http://192.168.7.38:8090/img/";
 
   // Asegúrate de que categorias siempre sea un array
 

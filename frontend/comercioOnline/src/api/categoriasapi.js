@@ -22,8 +22,6 @@ export const createCategoria = async (categoriaData) => {
   }
 };
 
-    
-
 
 // Actualizar una categoría
 export const updateCategoria = async (id, categoriaData, file) => {

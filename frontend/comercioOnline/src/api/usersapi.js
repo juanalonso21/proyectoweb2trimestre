@@ -61,3 +61,17 @@ export const deleteUser = async (id) => {
     throw error;
   }
 };
+export const loginUser = async (credentials) => {
+  try {
+    // Asegúrate de que el Content-Type es application/json
+    const response = await apiClient.post("/usuario/login", credentials, {
+      headers: {
+        "Content-Type": "application/json", // Especificamos que estamos enviando JSON
+      },
+    });
+    return response.data; // Devuelve la respuesta del backend
+  } catch (error) {
+    console.error("Error al realizar login:", error);
+    throw error; // Lanza el error si algo falla
+  }
+};

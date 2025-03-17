@@ -2,7 +2,6 @@
 .custom-header {
   background-color: #343a40; /* Color de fondo del header */
   padding: 10px 0; /* Relleno vertical */
-  width: 100vw; /* Ancho completo */
 }
 
 .custom-header img {

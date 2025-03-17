@@ -18,7 +18,7 @@ const ProductsPage = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch("http://localhost:8090/api/producto/");
+      const response = await fetch("http://192.168.7.38:8090/api/producto/");
       const data = await response.json();
       console.log("Respuesta de la API (productos):", data); // Depuración
       setProducts(data); // Asume que la respuesta es un array
@@ -30,7 +30,7 @@ const ProductsPage = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch("http://localhost:8090/api/categoria/");
+      const response = await fetch("http://192.168.7.38/api/categoria/");
       const data = await response.json();
       console.log("Respuesta de la API (categorías):", data); // Depuración
       setCategories(data); // Asume que la respuesta es un array

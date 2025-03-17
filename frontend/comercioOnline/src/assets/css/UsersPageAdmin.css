@@ -1,0 +1,7 @@
+.table-container {
+    width: 90%;  /* Reduce el ancho de la tabla */
+    max-width: 1200px;  /* Máximo tamaño de la tabla */
+    overflow-x: auto;  /* Permite scroll solo si es necesario */
+    margin: 0 auto;  /* Centra la tabla */
+  }
+  

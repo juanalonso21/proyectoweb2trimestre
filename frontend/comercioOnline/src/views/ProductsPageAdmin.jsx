@@ -3,7 +3,7 @@ import { getProducts, createProduct, updateProduct, deleteProduct } from "../api
 import ProductsList from "../components/ProductListAdmin";
 import ProductForm from "../components/ProductForm";
 import Sidebar from "../components/sidebaradmin";
-import "../assets/css/Admin.css";
+import "../assets/css/ProductsAdmin.css";
 const ProductsPageAdmin = () => {
   const [products, setProducts] = useState([]);
   const [editingProduct, setEditingProduct] = useState(null);

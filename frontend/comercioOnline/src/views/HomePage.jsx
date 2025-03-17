@@ -29,8 +29,8 @@ const HomePage = () => {
       </Container>
 
       {/* Contacto */}
+      
       <Contact />
-
       {/* Footer */}
       <Footer />
     </>

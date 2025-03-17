@@ -3,7 +3,7 @@ import { getUsers, createUser, updateUser, deleteUser } from "../api/usersapi";
 import UsersList from "../components/UsersList";
 import UserForm from "../components/UserForm";
 import Sidebar from "../components/sidebaradmin";
-
+import "../assets/css/UsersPageAdmin.css";
 const UsersPageAdmin = () => {
   const [users, setUsers] = useState([]);
   const [editingUser, setEditingUser] = useState(null);
@@ -108,24 +108,27 @@ const UsersPageAdmin = () => {
   };
 
   return (
-    <div className="container">
-      <Sidebar />
-      <h2>Usuarios</h2>
-      <button className="btn btn-success mb-3" onClick={handleAddUser}>
-        Añadir Usuario
-      </button>
-      {showForm && (
-        <div className="mb-4">
-          <UserForm
-            user={newUser}
-            onChange={handleInputChange}
-            onSubmit={handleCreateOrUpdateUser}
-            editingUser={editingUser}
-          />
-        </div>
-      )}
-      <UsersList users={users} onEdit={handleEditUser} onDelete={handleDeleteUser} />
+    <div className="container d-flex flex-column justify-content-center align-items-center vh-100">
+  <Sidebar />
+  <h2 className="text-center">Usuarios</h2>
+  <button className="btn btn-success mb-3" onClick={handleAddUser}>
+    Añadir Usuario
+  </button>
+  {showForm && (
+    <div className="mb-4">
+      <UserForm
+        user={newUser}
+        onChange={handleInputChange}
+        onSubmit={handleCreateOrUpdateUser}
+        editingUser={editingUser}
+      />
     </div>
+  )}
+  <div className="table-responsive w-75">
+    <UsersList users={users} onEdit={handleEditUser} onDelete={handleDeleteUser} />
+  </div>
+</div>
+
   );
 };
 

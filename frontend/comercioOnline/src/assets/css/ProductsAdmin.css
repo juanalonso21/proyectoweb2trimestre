@@ -1,0 +1,13 @@
+/* .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+} */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  padding-left: 40%;
+}
