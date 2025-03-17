@@ -1,0 +1,17 @@
+/* Aplica al contenedor principal */
+.flex {
+    display: flex;
+    margin-left: 200px; /* Mueve todo el contenido hacia la derecha. Ajusta el valor según el tamaño de tu Sidebar */
+    min-height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+  }
+  
+  /* Aplica al contenido de la página */
+  .flex-1 {
+    flex: 1; /* El contenido toma el 100% del espacio disponible */
+    padding: 20px; /* Agrega algo de espacio alrededor del contenido */
+  }
+  
+  /* Si deseas un mayor margen a la derecha para que no quede pegado */
+  .flex-1 p {
+    margin-right: 20px;
+  }
