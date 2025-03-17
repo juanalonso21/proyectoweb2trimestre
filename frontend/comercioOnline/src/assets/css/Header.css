@@ -4,6 +4,13 @@
   padding: 10px 0; /* Relleno vertical */
 }
 
+.custom-header img {
+  width: 100px;
+     height: 100px;
+     background-color: white;
+     border-radius: 50%;
+}
+
 /* Estilos para el buscador */
 .custom-search {
   width: 100%; /* Ancho completo para que sea responsivo */
@@ -21,6 +28,10 @@
 
 .custom-icons a {
   margin-bottom: 0; /* Elimina el espacio inferior */
+}
+
+.custom-icons a:hover {
+  color: #007bff;
 }
 
 /* Estilos para la barra de enlaces */

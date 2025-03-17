@@ -76,6 +76,16 @@
   transition: background-color 0.3s ease; /* Transición suave */
 }
 
+.boton-primary {
+  width: 100%; /* Ancho completo */
+  padding: 10px; /* Espaciado interno */
+  font-size: 1rem; /* Tamaño del texto */
+  background-color: #007bff; /* Color de fondo */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
 .btn-primary:hover {
   background-color: #0056b3; /* Color de fondo al pasar el mouse *=======
 .product-image-container {

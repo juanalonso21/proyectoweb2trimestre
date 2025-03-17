@@ -48,7 +48,7 @@ const Header = () => {
               <FormControl
                 type="search"
                 placeholder="Buscar productos..."
-                className="me-2"
+                className="me-5"
                 aria-label="Buscar"
                 value={searchTerm} // Valor controlado por el estado
                 onChange={handleSearchChange} // Maneja cambios en el input
