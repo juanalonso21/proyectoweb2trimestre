@@ -1,0 +1,43 @@
+/* Estilos para la página de inicio */
+.carousel-item img {
+    border-radius: 8px;
+    height: 500px; 
+  }
+
+  .product-list .card {
+    transition: transform 0.2s;
+  }
+  
+  .product-list .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .product-list .card-img-top {
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .product-list .card-body {
+    text-align: center;
+  }
+
+  body{
+    background-color: #c5c1c1 !important;
+  }
+
+  .txt-color{
+    color: rgb(56, 54, 54) !important;
+  }
+
+  .txt-title-color{
+    font-size: 25px !important;
+    color: rgb(29, 28, 28) !important;
+  }
+
+  .txt-descrp-color{
+    font-size: 20px !important;
+    color: rgb(24, 23, 23) !important;
+  }
+
+  .text-top{
+    top: 50% !important;
+  }
