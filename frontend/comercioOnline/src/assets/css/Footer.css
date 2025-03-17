@@ -3,6 +3,7 @@
     background-color: #343a40; /* Color de fondo oscuro */
     color: #ffffff; /* Color del texto */
     padding: 40px 0; /* Relleno vertical */
+    width: 100vw;
   }
   
   /* Estilos para cada sección del footer */
