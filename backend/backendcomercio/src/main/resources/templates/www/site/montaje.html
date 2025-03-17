@@ -1,0 +1,42 @@
+<html xmlns:th="https://www.thymeleaf.org"
+    layout:decorate="~{www/layout/Main.html}" lang="es">
+    <head layout:fragment="extra-head">
+        <title>Montaje</title>
+        <link rel="stylesheet" th:href="@{/css/www/montaje.css}">
+        <title>Montaje de Ordenadores</title>
+    </head>
+    <section layout:fragment="contenedor-principal">
+        <section class="hero-section text-center">
+            <div class="container">
+                <h1>Montaje de Ordenadores</h1>
+                <p class="lead">Nuestro equipo especializado tiene años de experiencia en el ensamblaje de ordenadores a medida. Confía en nosotros para construir tu PC perfecto.</p>
+                <a href="#especializados" class="btn btn-primary btn-lg">Conoce más</a>
+            </div>
+        </section>
+    
+        <!-- Sección Especializados -->
+        <section id="especializados" class="specialized-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2>Expertos en Montaje de Ordenadores</h2>
+                        <p>En nuestra empresa, contamos con un equipo altamente capacitado y con amplia experiencia en el montaje de ordenadores. Nos especializamos en la creación de equipos personalizados que se adaptan a las necesidades específicas de cada cliente, ya sea para gaming, trabajo, diseño gráfico o cualquier otra actividad.</p>
+                        <p>Utilizamos componentes de alta calidad y seguimos rigurosos estándares de ensamblaje para garantizar que cada ordenador que sale de nuestras manos sea eficiente, duradero y de alto rendimiento.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="ruta/a/tu/imagen-de-montaje.jpg" alt="Montaje de Ordenadores" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Sección Llamado a la acción -->
+        <section class="cta-section">
+            <div class="container">
+                <h3>¿Listo para tu próximo ordenador?</h3>
+                <p>Contáctanos hoy mismo y deja que nuestro equipo de expertos te ayude a construir el ordenador de tus sueños.</p>
+                <a href="/contacto" class="btn btn-success btn-lg">Contáctanos</a>
+            </div>
+        </section>
+    </section>
+</html>
