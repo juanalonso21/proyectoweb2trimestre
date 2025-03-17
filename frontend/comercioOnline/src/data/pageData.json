@@ -2,17 +2,17 @@
   "pageTitle": "E-commerce - Inicio",
   "carousel": [
     {
-      "image": "/public/img/ofertas.jpg",
+      "image": "/public/img/ofertas04.webp",
       "title": "Ordenadores",
       "description": "Aprovecha nuestras ofertas de temporada con descuentos de hasta el 50%."
     },
     {
-      "image": "/public/img/producto03.jpg",
+      "image": "/public/img/ofertas05.jpg",
       "title": "Electrodomesticos",
       "description": "Compra hoy y recibe tu pedido sin costos de envío."
     },
     {
-      "image": "/public/img/producto04.jpg",
+      "image": "/public/img/ofertas06.jpg",
       "title": "Espadas de hierro",
       "description": "Descubre nuestra última colección de productos innovadores."
     }
