@@ -1,0 +1,68 @@
+/* Estilos para el header */
+.custom-header {
+  background-color: #343a40; /* Color de fondo del header */
+  padding: 10px 0; /* Relleno vertical */
+}
+
+.custom-header img {
+  width: 100px;
+     height: 100px;
+     background-color: white;
+     border-radius: 50%;
+}
+
+/* Estilos para el buscador */
+.custom-search {
+  width: 100%; /* Ancho completo para que sea responsivo */
+  max-width: 500px; /* Ancho máximo para no estirarse demasiado en pantallas grandes */
+  margin: 0 auto; /* Centrar el buscador */
+}
+
+/* Estilos para los íconos de usuario y carrito */
+.custom-icons {
+  display: flex;
+  flex-direction: row; /* Coloca los íconos en fila */
+  align-items: center; /* Alinea los íconos al centro */
+  gap: 15px; /* Espacio entre los íconos */
+}
+
+.custom-icons a {
+  margin-bottom: 0; /* Elimina el espacio inferior */
+}
+
+.custom-icons a:hover {
+  color: #007bff;
+}
+
+/* Estilos para la barra de enlaces */
+.custom-links {
+  background-color: #f8f9fa; /* Color de fondo de la barra de enlaces */
+  padding: 10px 0; /* Relleno vertical */
+}
+
+.custom-links .nav-link {
+  color: #343a40; /* Color del texto de los enlaces */
+  margin: 0 15px; /* Espacio horizontal entre enlaces */
+}
+
+.custom-links .nav-link:hover {
+  color: #007bff; /* Color del texto al pasar el mouse */
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .custom-search {
+    width: 100%; /* Ancho completo en pantallas pequeñas */
+    margin: 10px 0; /* Margen superior e inferior */
+  }
+
+  .custom-icons {
+    flex-direction: row; /* Mantén los íconos en fila en pantallas pequeñas */
+    justify-content: center; /* Centra los íconos */
+    margin: 10px 0; /* Margen superior e inferior */
+  }
+
+  .custom-links .nav-link {
+    margin: 0 10px; /* Reduce el espacio entre enlaces en pantallas pequeñas */
+  }
+}
