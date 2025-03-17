@@ -1,17 +1,17 @@
 import React from "react";
 
-const CategoriasListAdmin = ({ Categorias, onEdit, onDelete }) => {
+const CategoriasListAdmin = ({ categorias, onEdit, onDelete }) => {
   const baseURL =
     window.location.hostname === "localhost"
       ? "http://localhost:8090/img/"
       : "http://192.168.0.23:8090/img/";
 
-  // Asegúrate de que Categorias siempre sea un array
-  const categoriasList = Array.isArray(Categorias) ? Categorias : [];
+  // Asegúrate de que categorias siempre sea un array
+
 
   return (
     <div className="container">
-      {categoriasList.length === 0 ? (
+      {categorias.length === 0 ? (
         <p>No hay categorías disponibles</p>
       ) : (
         <table className="table table-striped">
@@ -25,7 +25,7 @@ const CategoriasListAdmin = ({ Categorias, onEdit, onDelete }) => {
             </tr>
           </thead>
           <tbody>
-            {categoriasList.map((categoria) => (
+            {categorias.map((categoria) => (
               <tr key={categoria.id}>
                 <td>{categoria.id}</td>
                 <td>{categoria.nombre}</td>
@@ -63,3 +63,4 @@ const CategoriasListAdmin = ({ Categorias, onEdit, onDelete }) => {
 };
 
 export default CategoriasListAdmin;
+

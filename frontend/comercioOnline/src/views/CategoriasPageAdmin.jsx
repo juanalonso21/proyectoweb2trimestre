@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getCategorias, createCategoria, updateCategoria, deleteCategoria } from "../api/categoriasapi";  // Importa las funciones desde el archivo categoriasapi.js
 import CategoriasListAdmin from "../components/CategoriasListAdmin";
 import Sidebar from "../components/sidebaradmin";
-
+import "../assets/css/Admin.css";
 const CategoriasPageAdmin = () => {
   const [categorias, setCategorias] = useState([]);
   const [selectedCategoria, setSelectedCategoria] = useState(null);

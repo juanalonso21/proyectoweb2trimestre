@@ -12,31 +12,18 @@ export const getCategorias = async () => {
 };
 
 // Crear una nueva categoría
-export const createCategoria = async (categoriaData, file) => {
+export const createCategoria = async (categoriaData) => {
   try {
-    const formData = new FormData();
-    
-    // Convertir el objeto categoriaData a JSON y agregarlo al FormData
-    formData.append("categoria", JSON.stringify(categoriaData));
-    
-    // Si existe un archivo, agregarlo al FormData
-    if (file) {
-      formData.append("file", file);
-    }
-    
-    // Enviar la solicitud POST con el FormData
-    const response = await apiClient.post("/categoria/create", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data", // Especificar el tipo de contenido adecuado
-      },
-    });
-    
+    const response = await apiClient.post("/categoria/create", categoriaData);
     return response.data;
   } catch (error) {
-    console.error("Error al crear la categoría:", error);
+    console.error("Error al crear cateogoria:", error);
     throw error;
   }
 };
+
+    
+
 
 // Actualizar una categoría
 export const updateCategoria = async (id, categoriaData, file) => {
