@@ -17,15 +17,34 @@ export const createCategoria = async (categoriaData) => {
     const response = await apiClient.post("/categoria/create", categoriaData);
     return response.data;
   } catch (error) {
-    console.error("Error al crear la categoría:", error);
+    console.error("Error al crear cateogoria:", error);
     throw error;
   }
 };
 
+    
+
+
 // Actualizar una categoría
-export const updateCategoria = async (id, categoriaData) => {
+export const updateCategoria = async (id, categoriaData, file) => {
   try {
-    const response = await apiClient.put(`/categoria/update/${id}`, categoriaData);
+    const formData = new FormData();
+    
+    // Convertir el objeto categoriaData a JSON y agregarlo al FormData
+    formData.append("categoria", JSON.stringify(categoriaData));
+    
+    // Si existe un archivo, agregarlo al FormData
+    if (file) {
+      formData.append("file", file);
+    }
+
+    // Enviar la solicitud PUT con el FormData
+    const response = await apiClient.put(`/categoria/update/${id}`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data", // Especificar el tipo de contenido adecuado
+      },
+    });
+
     return response.data;
   } catch (error) {
     console.error(`Error al actualizar la categoría con ID ${id}:`, error);

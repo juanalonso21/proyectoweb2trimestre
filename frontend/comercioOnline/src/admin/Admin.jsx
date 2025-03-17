@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SideBar from "../components/sidebaradmin";
-
+import "../assets/css/Admin.css";
 function Admin() {
   const [user, setUser] = useState(null);
 

@@ -18,7 +18,7 @@ import com.juanjosu.backendcomercio.model.Entities.Usuario;
 
 @RestController
 @RequestMapping("/api/usuario")
-@CrossOrigin(origins = "http://localhost:5173") // Permitir tu frontend
+@CrossOrigin(origins = "*") // Permitir todos los orígenes
 public class ApiUsuarioController {
 
     private static final String UPLOAD_DIR = "assets/img/";
@@ -40,16 +40,9 @@ public class ApiUsuarioController {
     }
 
     @PostMapping("/create")
-    public void createUsuario(@RequestParam("usuario") String usuarioJson, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
-        Usuario usuario = objectMapper.readValue(usuarioJson, Usuario.class);
-        if (file != null && !file.isEmpty()) {
-            String fileName = file.getOriginalFilename();
-            Path filePath = Paths.get(UPLOAD_DIR, fileName);
-            Files.createDirectories(filePath.getParent());
-            Files.write(filePath, file.getBytes());
-            usuario.setAvatarUrl(fileName);
-        }
+    public ResponseEntity<?> createUsuario(@RequestBody Usuario usuario) {
         usuarioService.create(usuario);
+        return ResponseEntity.ok(Map.of("success", true));
     }
 
     @PutMapping("/update/{id}")

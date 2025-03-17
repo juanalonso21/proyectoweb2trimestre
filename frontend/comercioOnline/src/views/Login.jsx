@@ -1,39 +1,20 @@
 import React, { useState } from "react";
-import axios from "axios";
-import "../assets/css/login.css";
+import "../assets/css/Login.css"; // Importa el CSS específico
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
 
-  const baseURL = window.location.hostname === 'localhost' 
-    ? "http://localhost:8090/api" 
-    : "http://192.168.0.23:8090/api";
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post(`${baseURL}/usuario/login`, { username, password });
-      const { data } = response;
-      if (data.success) {
-        // Guardar la información del usuario en localStorage
-        localStorage.setItem("user", JSON.stringify(data.user));
-        setError("");
-        console.log("Login exitoso:", data.user);
-        // Redirigir al usuario a la página principal o a la página correspondiente
-        window.location.href = "/"; // Cambia esto a la ruta que desees
-      } else {
-        setError("Credenciales inválidas. Por favor, inténtelo de nuevo.");
-      }
-    } catch (error) {
-      setError("Error al iniciar sesión. Por favor, inténtelo de nuevo.");
-    }
+    // Aquí puedes manejar el envío del formulario, por ejemplo, hacer una petición a tu API
+    console.log("Username:", username);
+    console.log("Password:", password);
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center rounded bg-light">
-      <div className="card p-4 shadow-lg">
+    <div className="login-container">
+      <div className="login-card">
         <h2 className="text-center mb-4">Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
@@ -48,24 +29,19 @@ const Login = () => {
               required
             />
           </div>
-          <div className="mb-3">
-            <label htmlFor="password" className="form-label">Contraseña</label>
+          <div className="form-group">
+            <label className="form-label">Contraseña</label>
             <input
               type="password"
               className="form-control"
-              id="password"
-              placeholder="Ingrese su contraseña"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
-          {error && <div className="alert alert-danger">{error}</div>}
-          <button type="submit" className="btn btn-primary w-100">Ingresar</button>
+          <button type="submit" className="btn btn-primary">Iniciar sesión</button>
         </form>
-        <div className="text-center mt-3">
-          <a href="#" className="text-decoration-none">¿Olvidaste tu contraseña?</a>
-        </div>
+        <a href="/registro">¿No tienes una cuenta? Regístrate</a>
       </div>
     </div>
   );

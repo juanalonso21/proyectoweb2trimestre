@@ -1,4 +1,5 @@
-body {
+/* Estilos específicos para el formulario de inicio de sesión */
+.login-container {
   background: linear-gradient(to right, #6a11cb, #2575fc);
   font-family: 'Arial', sans-serif;
   display: flex;
@@ -8,7 +9,7 @@ body {
   margin: 0;
 }
 
-.card {
+.login-container .login-card {
   background: #fff;
   border: none;
   border-radius: 15px;
@@ -17,34 +18,34 @@ body {
   padding: 2rem;
 }
 
-.card h2 {
+.login-container .login-card h2 {
   color: #333;
 }
 
-.card .form-label {
+.login-container .login-card .form-label {
   color: #555;
 }
 
-.card .form-control {
+.login-container .login-card .form-control {
   border-radius: 8px;
 }
 
-.card .btn-primary {
+.login-container .login-card .btn-primary {
   background: #6a11cb;
   border: none;
   border-radius: 8px;
   transition: background 0.3s ease;
 }
 
-.card .btn-primary:hover {
+.login-container .login-card .btn-primary:hover {
   background: #2575fc;
 }
 
-.card a {
+.login-container .login-card a {
   color: #6a11cb;
   transition: color 0.3s ease;
 }
 
-.card a:hover {
+.login-container .login-card a:hover {
   color: #2575fc;
 }
