@@ -1,72 +1,82 @@
-import React, { useEffect, useState } from "react";
-import { getCategorias, createCategoria, updateCategoria, deleteCategoria } from "../api/categoriasapi";
+import React, { useState, useEffect } from "react";
+import { getCategorias, createCategoria, updateCategoria, deleteCategoria } from "../api/categoriasapi";  // Importa las funciones desde el archivo categoriasapi.js
 import CategoriasListAdmin from "../components/CategoriasListAdmin";
 import Sidebar from "../components/sidebaradmin";
 
 const CategoriasPageAdmin = () => {
   const [categorias, setCategorias] = useState([]);
-  const [editingCategoria, setEditingCategoria] = useState(null);
-  const [newCategoria, setNewCategoria] = useState({
-    nombre: "",
-  });
+  const [selectedCategoria, setSelectedCategoria] = useState(null);
+  const [nombre, setNombre] = useState("");
+  const [descripcion, setDescripcion] = useState("");
+  const [icono, setIcono] = useState(null);
   const [showForm, setShowForm] = useState(false);
 
+  // Cargar las categorías al inicio
   useEffect(() => {
-    loadCategorias();
+    fetchCategorias();
   }, []);
 
-  const loadCategorias = async () => {
+  const fetchCategorias = async () => {
     try {
       const data = await getCategorias();
       setCategorias(Array.isArray(data) ? data : []);
     } catch (error) {
-      console.error("Error al cargar las categorías", error);
+      console.error("Error al obtener las categorías:", error);
     }
   };
 
-  const handleCreateOrUpdateCategoria = async (formData) => {
-    try {
-      if (editingCategoria) {
-        await updateCategoria(editingCategoria.id, formData);
-      } else {
-        await createCategoria(formData);
-      }
-      setNewCategoria({
-        nombre: "",
-      });
-      setEditingCategoria(null);
-      setShowForm(false);
-      loadCategorias();
-    } catch (error) {
-      console.error("Error al crear o actualizar la categoría", error);
-    }
-  };
-
-  const handleEditCategoria = (categoria) => {
-    setEditingCategoria(categoria);
-    setNewCategoria(categoria);
+  // Editar categoría
+  const handleEdit = (categoria) => {
+    setSelectedCategoria(categoria);
+    setNombre(categoria.nombre);
+    setDescripcion(categoria.descripcion);
     setShowForm(true);
   };
 
-  const handleDeleteCategoria = async (id) => {
+  // Eliminar categoría
+  const handleDelete = async (id) => {
     try {
-      await deleteCategoria(id);
-      loadCategorias();
+      await deleteCategoria(id);  // Usamos la API de eliminación
+      fetchCategorias();  // Recargar categorías después de eliminar
     } catch (error) {
-      console.error("Error al eliminar la categoría", error);
+      console.error("Error al eliminar la categoría:", error);
     }
   };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewCategoria({ ...newCategoria, [name]: value });
+  // Manejar el envío del formulario (crear o actualizar)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("categoria", JSON.stringify({ nombre, descripcion }));
+    if (icono) {
+      formData.append("file", icono);
+    }
+
+    try {
+      if (selectedCategoria) {
+        // Actualizar categoría existente
+        await updateCategoria(selectedCategoria.id, formData);
+      } else {
+        // Crear nueva categoría
+        await createCategoria(formData);
+      }
+      fetchCategorias();
+      setSelectedCategoria(null);
+      setNombre("");
+      setDescripcion("");
+      setIcono(null);
+      setShowForm(false);
+    } catch (error) {
+      console.error("Error al guardar la categoría:", error);
+    }
   };
 
+  // Mostrar formulario para agregar nueva categoría
   const handleAddCategoria = () => {
-    setEditingCategoria(null);
-    setNewCategoria({
-      nombre: "",
-    });
+    setSelectedCategoria(null);
+    setNombre("");
+    setDescripcion("");
+    setIcono(null);
     setShowForm(true);
   };
 
@@ -74,36 +84,63 @@ const CategoriasPageAdmin = () => {
     <div className="d-flex">
       <Sidebar />
       <div className="container">
-        <h2>Categorías</h2>
+        <h2>Administración de Categorías</h2>
+
+        {/* Botón para mostrar el formulario de creación */}
         <button className="btn btn-success mb-3" onClick={handleAddCategoria}>
           Añadir Categoría
         </button>
+
+        {/* Mostrar formulario de creación o edición de categoría */}
         {showForm && (
           <div className="mb-4">
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleCreateOrUpdateCategoria(newCategoria);
-              }}
-            >
-              <div className="form-group">
-                <label>Nombre</label>
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <label htmlFor="nombre" className="form-label">Nombre</label>
                 <input
                   type="text"
                   className="form-control"
-                  name="nombre"
-                  placeholder="Nombre"
-                  value={newCategoria.nombre}
-                  onChange={handleInputChange}
+                  id="nombre"
+                  value={nombre}
+                  onChange={(e) => setNombre(e.target.value)}
+                  required
                 />
               </div>
-              <button type="submit" className="btn btn-primary mt-3">
-                {editingCategoria ? "Actualizar Categoría" : "Crear Categoría"}
+
+              <div className="mb-3">
+                <label htmlFor="descripcion" className="form-label">Descripción</label>
+                <textarea
+                  className="form-control"
+                  id="descripcion"
+                  value={descripcion}
+                  onChange={(e) => setDescripcion(e.target.value)}
+                  required
+                />
+              </div>
+
+              <div className="mb-3">
+                <label htmlFor="icono" className="form-label">Icono</label>
+                <input
+                  type="file"
+                  className="form-control"
+                  id="icono"
+                  onChange={(e) => setIcono(e.target.files[0])}
+                />
+              </div>
+
+              <button type="submit" className="btn btn-primary">
+                {selectedCategoria ? "Actualizar" : "Crear"}
               </button>
             </form>
           </div>
         )}
-        <CategoriasListAdmin categorias={categorias} onEdit={handleEditCategoria} onDelete={handleDeleteCategoria} />
+
+        {/* Listar las categorías */}
+        <CategoriasListAdmin
+          categorias={categorias}
+          onEdit={handleEdit}
+          onDelete={handleDelete}
+        />
       </div>
     </div>
   );
