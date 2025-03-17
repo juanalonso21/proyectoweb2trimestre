@@ -30,14 +30,10 @@
 
   .txt-title-color{
     font-size: 25px !important;
-    color: rgb(29, 28, 28) !important;
+    color: rgb(240, 236, 236) !important;
   }
 
   .txt-descrp-color{
     font-size: 20px !important;
-    color: rgb(24, 23, 23) !important;
-  }
-
-  .text-top{
-    top: 50% !important;
+    color: rgb(244, 243, 243) !important;
   }

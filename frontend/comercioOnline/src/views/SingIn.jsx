@@ -43,8 +43,8 @@ const SignIn = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center rounded bg-light">
-      <div className="card p-4 shadow-lg">
+    <div className="d-flex justify-content-center align-items-center rounded bg-light login-container">
+      <div className="card p-4 shadow-lg login-card">
         <h2 className="text-center mb-4">Registro</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
