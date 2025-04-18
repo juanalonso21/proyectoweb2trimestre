@@ -9,6 +9,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/admin" element={<ProtectedRoute component={Sidebar} />} />
         {/* Agrega más rutas según sea necesario */}
         <Route path="/signin" component={SignIn} />
         
