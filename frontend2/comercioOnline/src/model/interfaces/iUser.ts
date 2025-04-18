@@ -1,4 +1,4 @@
-export interface IUser {
+export default interface IUser {
     id:            number;
     username:      string;
     email:         string;
@@ -6,7 +6,7 @@ export interface IUser {
     nombre:        string;
     estado:        string;
     rol:           string;
-    fechaCreacion: null;
+    fechaCreacion: Date;
     ultimoLogin:   null;
     token:         string;
     intentosLogin: number;
