@@ -29,7 +29,9 @@ public class ProductoService {
     public Producto getId(Integer id){
         return this.productoRep.findById(id).orElse(null);
     }
-
+    public List<Producto> getByCategoria(Integer categoria_id) {
+        return productoRep.findByCategoriaId(categoria_id);
+    }
     public void update(Integer id, Producto producto) {
         Optional<Producto> existingProducto = productoRep.findById(id);
         if (existingProducto.isPresent()) {
@@ -42,5 +44,9 @@ public class ProductoService {
             // Actualiza otros campos según sea necesario
             productoRep.save(updatedProducto);
         }
+    }
+
+    public List<Producto> searchByNombreOrDescripcion(String query) {
+        return productoRep.findByNombreContainingIgnoreCaseOrDescripcionContainingIgnoreCase(query, query);
     }
 }

@@ -5,8 +5,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -31,24 +33,33 @@ public class ApiProductoController {
     public List<Producto> getProductos() {
         return productoService.getAll();
     }
-
+    @GetMapping("/categoria/{id}")
+        public List<Producto> getProductosByCategoria(@PathVariable Integer id) {
+        return productoService.getByCategoria(id);
+    }
     @GetMapping("/{id}")
     public Producto getProducto(@PathVariable Integer id) {
         return productoService.getId(id);
     }
 
     @PostMapping("/create")
-    public void createProducto(@RequestParam("producto") String productoJson, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
+    public ResponseEntity<?> createProducto(@RequestParam("producto") String productoJson, 
+                                             @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
         Producto producto = objectMapper.readValue(productoJson, Producto.class);
+
+        // Verificar y guardar el archivo si se proporciona
         if (file != null && !file.isEmpty()) {
             String fileName = file.getOriginalFilename();
             Path filePath = Paths.get(UPLOAD_DIR, fileName);
             Files.createDirectories(filePath.getParent());
             Files.write(filePath, file.getBytes());
             producto.setImagenUrl(fileName);
-            System.out.println("Imagen guardada en: " + filePath.toAbsolutePath().toString()); // Log para verificar la ruta
+            System.out.println("Imagen guardada en: " + filePath.toAbsolutePath().toString());
         }
+
+        // Crear el producto en la base de datos
         productoService.create(producto);
+        return ResponseEntity.ok(Map.of("success", true)); // Devolver una respuesta de éxito
     }
 
     @PutMapping("/update/{id}")
@@ -89,5 +100,11 @@ public class ApiProductoController {
             }
         }
         productoService.delete(id);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Producto>> searchProductos(@RequestParam("q") String query) {
+        List<Producto> productos = productoService.searchByNombreOrDescripcion(query);
+        return ResponseEntity.ok(productos);
     }
 }

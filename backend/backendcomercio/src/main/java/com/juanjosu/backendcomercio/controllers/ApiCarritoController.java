@@ -25,6 +25,11 @@ public class ApiCarritoController {
         return carritoService.getId(id);
     }
 
+    @GetMapping("/user/{userId}")
+    public Carrito getCarritoByUserId(@PathVariable Integer userId) {
+        return carritoService.getCarritoByUserId(userId);
+    }
+
     @PostMapping("/create")
     public void createCarrito(@RequestBody Carrito carrito) {
         carritoService.create(carrito);
