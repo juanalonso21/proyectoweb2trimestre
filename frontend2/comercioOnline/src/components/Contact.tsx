@@ -52,7 +52,7 @@ const Contact: React.FC = () => {
     };
 
     try {
-      const response = await fetch('https://discord.com/api/webhooks/1349896265223114773/nCVe-sGiKvg3WBs-DLDIn-rhE6Tk_q32R04S9AS5Pc__JWlEYQ84j8xesht2gRQ-Eh79', {
+      const response = await fetch('https://discord.com/api/webhooks/1365078295351136316/t0-NhNoSvTPhVZpD9Iz7ch7DL9RA7wthizT2BSvrDfuHR9ckD_eG0wkCVpiewIdZkDux', {
         method: 'POST',
         body: JSON.stringify(contenido),
         headers: {
